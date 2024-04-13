@@ -19,7 +19,14 @@ use App\Models\Listing;
 //All listings
 Route::get('/', [ListingController::class, 'index']);
 
-//Single listing
+//Show Create Form
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+//Show Create Form
+Route::post('/listings', [ListingController::class, 'store']);
+
+//Single listing -> this route must be at the bottom because of the
+//wildcard {{listing}}
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 //Common Resource Routes:
