@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,15 @@ Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
 //Single listing -> this route must be at the bottom because of the
 //wildcard {{listing}}
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+//show register create form
+Route::get('/register', [UserController::class, 'create']);
+
+//Create User 
+Route::post('/users', [UserController::class, 'store']);
+
+//show login form
+Route::get('/login', [UserController::class, 'login']);
 
 //Common Resource Routes:
 // index - Show all listings
