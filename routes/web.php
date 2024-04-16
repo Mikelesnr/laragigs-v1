@@ -25,6 +25,15 @@ Route::get('/listings/create', [ListingController::class, 'create']);
 //Show Create Form
 Route::post('/listings', [ListingController::class, 'store']);
 
+//Show Edit Form
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+//update -Update listing
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
+
+//delete -Delete listing
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+
 //Single listing -> this route must be at the bottom because of the
 //wildcard {{listing}}
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
