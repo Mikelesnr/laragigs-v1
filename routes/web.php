@@ -32,6 +32,9 @@ Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->midd
 //update -Update listing
 Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
 
+//manage listings
+Route::get('/listings/manage', [ListingController::class, 'manage'])->name('manage')->middleware('auth');
+
 //delete -Delete listing
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
 
@@ -53,6 +56,8 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 //login form
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+
 
 
 //Common Resource Routes:
